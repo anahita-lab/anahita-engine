@@ -1,5 +1,6 @@
 package tech.siloxa.anahita.demo;
 
+import tech.siloxa.anahita.controller.InputController;
 import tech.siloxa.anahita.grapichs.Screen;
 import tech.siloxa.anahita.window.AbstractPanel;
 
@@ -17,11 +18,11 @@ public class AnahitaPanel extends AbstractPanel {
         this.b = b;
     }
 
-//    @Override
-//    public void input(InputController controller) {
-//        // TODO Auto-generated method stub
-//
-//    }
+    @Override
+    public void input(InputController controller) {
+        // TODO Auto-generated method stub
+
+    }
 
     @Override
     public void update() {

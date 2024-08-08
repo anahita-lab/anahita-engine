@@ -135,7 +135,7 @@ public class Anahita implements Runnable {
     }
 
     public void input() {
-        //this.panel.input(this.controller);
+        this.window.getPanel().input(screenManager.currentScreen());
     }
 
     private void render() {

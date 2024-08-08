@@ -1,5 +1,6 @@
 package tech.siloxa.anahita.demo;
 
+import tech.siloxa.anahita.controller.InputController;
 import tech.siloxa.anahita.grapichs.DynamicScreen;
 import tech.siloxa.anahita.grapichs.Map;
 
@@ -13,13 +14,9 @@ public class AnahitaScreen extends DynamicScreen {
     }
 
     @Override
-    public int x() {
-        return 0;
-    }
-
-    @Override
-    public int y() {
-        return 0;
+    public void input(InputController controller) {
+        controller.setKeyboardController(new AnahitaKeyboardController());
+        // باید آناهیتا کیبورد هندلر بره تو ابسترکت کیبورد هندلر بعد این ابسترکتش پاک شه تبدیل شه به یه کلاس عادی. تمام دکمه های کیبورد همونجا تعریف میشن و در نهایت هر اسکرین میتونه به کل کیبوردا دسترسی داشته باشه و اکشن های خودشو برای هر دکمه تعریف کنه و تو لوپ اصلی اسکرین منیجره که تصمیم می گیره الان کدوم اسکرین باید کنترل رو به دست بگیره
     }
 
     @Override

@@ -1,5 +1,6 @@
 package tech.siloxa.anahita.window;
 
+import tech.siloxa.anahita.controller.InputController;
 import tech.siloxa.anahita.grapichs.Screen;
 
 import javax.swing.*;
@@ -21,7 +22,7 @@ public abstract class AbstractPanel extends JPanel {
 
     public abstract void update();
 
-//    public abstract void input(InputController controller);
+    public abstract void input(InputController controller);
 
     public abstract void render(Graphics2D graphics, Screen screen);
 }
