@@ -2,7 +2,7 @@ package tech.siloxa.anahita.grapichs;
 
 import java.util.List;
 
-public class Map {
+public final class Map {
 
     private List<List<Tile>> tiles;
 

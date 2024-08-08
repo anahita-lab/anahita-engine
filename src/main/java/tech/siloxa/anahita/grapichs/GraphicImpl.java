@@ -3,12 +3,12 @@ package tech.siloxa.anahita.grapichs;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class AnahitaGraphic implements Graphic {
+public class GraphicImpl implements Graphic {
 
     private BufferedImage bimg;
     private Graphics2D graphics;
 
-    public AnahitaGraphic(Dimension dimension) {
+    public GraphicImpl(Dimension dimension) {
         bimg = new BufferedImage(dimension.width, dimension.height, BufferedImage.TYPE_INT_ARGB);
         graphics = (Graphics2D) bimg.getGraphics();
     }

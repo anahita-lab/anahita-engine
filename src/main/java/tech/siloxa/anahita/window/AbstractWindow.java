@@ -1,7 +1,5 @@
 package tech.siloxa.anahita.window;
 
-import tech.siloxa.anahita.window.panel.AbstractPanel;
-
 import javax.swing.*;
 import java.awt.*;
 

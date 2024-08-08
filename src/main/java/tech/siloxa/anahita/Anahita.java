@@ -2,14 +2,14 @@ package tech.siloxa.anahita;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tech.siloxa.anahita.demo.AnahitaPanel;
+import tech.siloxa.anahita.demo.AnahitaWindow;
 import tech.siloxa.anahita.engine.FrameRate;
-import tech.siloxa.anahita.engine.GameStateManager;
-import tech.siloxa.anahita.grapichs.AnahitaGraphic;
+import tech.siloxa.anahita.engine.ScreenManager;
 import tech.siloxa.anahita.grapichs.Graphic;
+import tech.siloxa.anahita.grapichs.GraphicImpl;
+import tech.siloxa.anahita.window.AbstractPanel;
 import tech.siloxa.anahita.window.AbstractWindow;
-import tech.siloxa.anahita.window.AnahitaWindow;
-import tech.siloxa.anahita.window.panel.AbstractPanel;
-import tech.siloxa.anahita.window.panel.AnahitaPanel;
 
 import java.awt.*;
 
@@ -22,7 +22,7 @@ public class Anahita implements Runnable {
     private Graphic graphic;
     private Thread gameLoop;
     private FrameRate frameRate;
-    private GameStateManager gameStateManager;
+    private ScreenManager screenManager;
 
     public Anahita(String[] args, Class<?>... primarySources) {
         this.args = args;
@@ -41,7 +41,7 @@ public class Anahita implements Runnable {
 
     private void setupEngine() {
         this.frameRate = createFrameRateInstance();
-        this.gameStateManager = new GameStateManager();
+        this.screenManager = new ScreenManager();
     }
 
     private FrameRate createFrameRateInstance() {
@@ -55,7 +55,7 @@ public class Anahita implements Runnable {
 
     private void runWindow() {
         this.window = getWindowInstance();
-        this.graphic = new AnahitaGraphic(this.window.getDimension());
+        this.graphic = new GraphicImpl(this.window.getDimension());
         final AbstractPanel panel = getPanelInstance();
         panel.construct(this.window.getDimension());
 
@@ -66,10 +66,10 @@ public class Anahita implements Runnable {
 //        if (getClassByWindowAnnotation().isPresent()) {
 //            return getClassByWindowAnnotation().get();
 //        }
-        return createPixelWindowInstance();
+        return createWindowInstance();
     }
 
-    private AnahitaWindow createPixelWindowInstance() {
+    private AnahitaWindow createWindowInstance() {
 //        if (this.context.getEnvironment().getProperty("pixel.window.fullscreen", Boolean.class, false)) {
 //            return new AnahitaWindow(
 //                    this.context.getEnvironment().getProperty("pixel.window.title", this.mainApplicationClass.getSimpleName()),
@@ -94,7 +94,11 @@ public class Anahita implements Runnable {
 //        if (getClassByPanelAnnotation().isPresent()) {
 //            return getClassByPanelAnnotation().get();
 //        }
-//        return new PixelPanel(
+        return createPanelInstance();
+    }
+
+    private static AnahitaPanel createPanelInstance() {
+        //        return new PixelPanel(
 //                this.context.getEnvironment().getProperty("pixel.panel.background-color.r", Integer.class, 240),
 //                this.context.getEnvironment().getProperty("pixel.panel.background-color.g", Integer.class, 148),
 //                this.context.getEnvironment().getProperty("pixel.panel.background-color.b", Integer.class, 73)
@@ -135,7 +139,7 @@ public class Anahita implements Runnable {
     }
 
     private void render() {
-        this.window.getPanel().render(this.graphic.get2DGraphic(), gameStateManager.currentScene());
+        this.window.getPanel().render(this.graphic.get2DGraphic(), screenManager.currentScreen());
     }
 
     private void draw() {

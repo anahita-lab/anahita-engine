@@ -1,6 +1,7 @@
-package tech.siloxa.anahita.window.panel;
+package tech.siloxa.anahita.demo;
 
-import tech.siloxa.anahita.grapichs.Scene;
+import tech.siloxa.anahita.grapichs.Screen;
+import tech.siloxa.anahita.window.AbstractPanel;
 
 import java.awt.*;
 
@@ -29,9 +30,9 @@ public class AnahitaPanel extends AbstractPanel {
     }
 
     @Override
-    public void render(Graphics2D graphics, Scene scene) {
+    public void render(Graphics2D graphics, Screen screen) {
         graphics.setColor(new Color(r, g, b));
         graphics.fillRect(0, 0, getWidth(), getHeight());
-        scene.render(graphics);
+        screen.render(graphics);
     }
 }

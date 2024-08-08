@@ -2,7 +2,7 @@ package tech.siloxa.anahita.grapichs;
 
 import java.util.Collection;
 
-public abstract class DynamicScene implements Scene {
+public abstract class DynamicScreen implements Screen {
 
     public abstract Map map();
 

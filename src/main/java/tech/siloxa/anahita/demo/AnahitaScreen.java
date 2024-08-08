@@ -1,8 +1,11 @@
-package tech.siloxa.anahita.grapichs;
+package tech.siloxa.anahita.demo;
+
+import tech.siloxa.anahita.grapichs.DynamicScreen;
+import tech.siloxa.anahita.grapichs.Map;
 
 import java.awt.*;
 
-public class AnahitaScene extends DynamicScene {
+public class AnahitaScreen extends DynamicScreen {
 
     @Override
     public Map map() {

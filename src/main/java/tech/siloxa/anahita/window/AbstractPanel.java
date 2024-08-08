@@ -1,13 +1,13 @@
-package tech.siloxa.anahita.window.panel;
+package tech.siloxa.anahita.window;
 
-import tech.siloxa.anahita.grapichs.Scene;
+import tech.siloxa.anahita.grapichs.Screen;
 
 import javax.swing.*;
 import java.awt.*;
 
 public abstract class AbstractPanel extends JPanel {
 
-    private Scene scene;
+    private Screen screen;
 
     public void construct(Dimension dimension) {
         setPreferredSize(dimension);
@@ -15,13 +15,13 @@ public abstract class AbstractPanel extends JPanel {
         requestFocus();
     }
 
-    public void setScene(Scene scene){
-        this.scene = scene;
+    public void setScene(Screen screen) {
+        this.screen = screen;
     }
 
     public abstract void update();
 
 //    public abstract void input(InputController controller);
 
-    public abstract void render(Graphics2D graphics, Scene scene);
+    public abstract void render(Graphics2D graphics, Screen screen);
 }
