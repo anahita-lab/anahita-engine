@@ -1,4 +1,4 @@
-package tech.siloxa.anahita.demo;
+package tech.siloxa.anahita.window;
 
 import tech.siloxa.anahita.window.AbstractPanel;
 import tech.siloxa.anahita.window.AbstractWindow;
@@ -6,7 +6,7 @@ import tech.siloxa.anahita.window.AbstractWindow;
 import javax.swing.*;
 import java.awt.*;
 
-public class DemoWindow extends AbstractWindow {
+public class AnahitaWindow extends AbstractWindow {
 
     private int width;
 
@@ -14,11 +14,11 @@ public class DemoWindow extends AbstractWindow {
 
     private AbstractPanel panel;
 
-    public DemoWindow(String title, boolean undecorated) {
+    public AnahitaWindow(String title, boolean undecorated) {
         this(title, undecorated, (int) SysScreen.getWidth(), (int) SysScreen.getHeight());
     }
 
-    public DemoWindow(String title, boolean undecorated, int width, int height) {
+    public AnahitaWindow(String title, boolean undecorated, int width, int height) {
         this.width = width;
         this.height = height;
         setTitle(title);

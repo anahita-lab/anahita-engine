@@ -13,13 +13,12 @@ public abstract class AbstractKeyboardController implements KeyListener {
 
     protected void init(List<Key> keys) {
         this.keys = keys.stream()
-                .map(key -> Map.entry(key.getEvent(), key))
+                .map(key -> Map.entry(key.getId(), key))
                 .collect(
                         Collectors.toMap(
                                 Map.Entry::getKey, Map.Entry::getValue, (k, v) -> k, LinkedHashMap::new
                         )
                 );
-        System.out.println(this.keys.get(KeyEvent.VK_W));
     }
 
     public void releaseAll() {
@@ -30,8 +29,8 @@ public abstract class AbstractKeyboardController implements KeyListener {
         keys.values().forEach(Key::tick);
     }
 
-    public void toggle(final KeyEvent keyEvent, final boolean pressed) {
-        final Key key = keys.get(keyEvent.getKeyCode());
+    public void toggle(final int keyId, final boolean pressed) {
+        final Key key = keys.get(keyId);
         if(key != null)
             key.toggle(pressed);
     }
@@ -43,11 +42,11 @@ public abstract class AbstractKeyboardController implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        toggle(e, true);
+        toggle(e.getKeyCode(), true);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        toggle(e, false);
+        toggle(e.getKeyCode(), false);
     }
 }
