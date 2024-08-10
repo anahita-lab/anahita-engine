@@ -1,12 +1,12 @@
 package tech.siloxa.anahita.grapichs;
 
-import tech.siloxa.anahita.controller.InputController;
+import tech.siloxa.anahita.io.InputController;
 
 import java.awt.*;
 
 public interface Screen {
 
-    void input(InputController controller);
+    InputController input();
 
     void render(Graphics2D graphics);
 }

@@ -1,4 +1,4 @@
-package tech.siloxa.anahita.controller;
+package tech.siloxa.anahita.io;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -11,7 +11,7 @@ public abstract class AbstractKeyboardController implements KeyListener {
 
     private Map<Integer, Key> keys;
 
-    public AbstractKeyboardController(List<Key> keys) {
+    protected void init(List<Key> keys) {
         this.keys = keys.stream()
                 .map(key -> Map.entry(key.getEvent(), key))
                 .collect(
@@ -19,6 +19,7 @@ public abstract class AbstractKeyboardController implements KeyListener {
                                 Map.Entry::getKey, Map.Entry::getValue, (k, v) -> k, LinkedHashMap::new
                         )
                 );
+        System.out.println(this.keys.get(KeyEvent.VK_W));
     }
 
     public void releaseAll() {
@@ -30,7 +31,9 @@ public abstract class AbstractKeyboardController implements KeyListener {
     }
 
     public void toggle(final KeyEvent keyEvent, final boolean pressed) {
-        keys.get(keyEvent.getKeyCode()).toggle(pressed);
+        final Key key = keys.get(keyEvent.getKeyCode());
+        if(key != null)
+            key.toggle(pressed);
     }
 
     @Override

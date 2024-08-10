@@ -1,4 +1,4 @@
-package tech.siloxa.anahita.controller;
+package tech.siloxa.anahita.io;
 
 public abstract class AbstractMouseController {
 }

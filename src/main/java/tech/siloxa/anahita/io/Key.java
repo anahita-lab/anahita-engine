@@ -1,11 +1,11 @@
-package tech.siloxa.anahita.controller;
+package tech.siloxa.anahita.io;
 
 public class Key {
 
     private int eventId;
-    public int presses;
-    public int absorbs;
-    public boolean down;
+    private int presses;
+    private int absorbs;
+    public boolean pressed;
     public boolean clicked;
 
     public Key(int eventId) {
@@ -17,8 +17,8 @@ public class Key {
     }
 
     public void toggle(final boolean pressed) {
-        if (pressed != down) {
-            down = pressed;
+        if (pressed != this.pressed) {
+            this.pressed = pressed;
         }
         if (pressed) {
             presses++;
@@ -35,6 +35,6 @@ public class Key {
     }
 
     public void release() {
-        down = false;
+        pressed = false;
     }
 }

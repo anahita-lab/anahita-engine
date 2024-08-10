@@ -2,8 +2,8 @@ package tech.siloxa.anahita;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tech.siloxa.anahita.demo.AnahitaPanel;
-import tech.siloxa.anahita.demo.AnahitaWindow;
+import tech.siloxa.anahita.demo.DemoPanel;
+import tech.siloxa.anahita.demo.DemoWindow;
 import tech.siloxa.anahita.engine.FrameRate;
 import tech.siloxa.anahita.engine.ScreenManager;
 import tech.siloxa.anahita.grapichs.Graphic;
@@ -69,7 +69,7 @@ public class Anahita implements Runnable {
         return createWindowInstance();
     }
 
-    private AnahitaWindow createWindowInstance() {
+    private DemoWindow createWindowInstance() {
 //        if (this.context.getEnvironment().getProperty("pixel.window.fullscreen", Boolean.class, false)) {
 //            return new AnahitaWindow(
 //                    this.context.getEnvironment().getProperty("pixel.window.title", this.mainApplicationClass.getSimpleName()),
@@ -82,7 +82,7 @@ public class Anahita implements Runnable {
 //                this.context.getEnvironment().getProperty("pixel.window.width", Integer.class, 400),
 //                this.context.getEnvironment().getProperty("pixel.window.height", Integer.class, 400)
 //        );
-        return new AnahitaWindow(
+        return new DemoWindow(
                 "title",
                 false,
                 400,
@@ -97,13 +97,13 @@ public class Anahita implements Runnable {
         return createPanelInstance();
     }
 
-    private static AnahitaPanel createPanelInstance() {
+    private static DemoPanel createPanelInstance() {
         //        return new PixelPanel(
 //                this.context.getEnvironment().getProperty("pixel.panel.background-color.r", Integer.class, 240),
 //                this.context.getEnvironment().getProperty("pixel.panel.background-color.g", Integer.class, 148),
 //                this.context.getEnvironment().getProperty("pixel.panel.background-color.b", Integer.class, 73)
 //        );
-        return new AnahitaPanel(
+        return new DemoPanel(
                 240,
                 148,
                 73
