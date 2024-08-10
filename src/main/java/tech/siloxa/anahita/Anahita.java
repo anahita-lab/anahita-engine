@@ -2,6 +2,8 @@ package tech.siloxa.anahita;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tech.siloxa.anahita.demo.DemoScreen;
+import tech.siloxa.anahita.grapichs.Screen;
 import tech.siloxa.anahita.window.AnahitaPanel;
 import tech.siloxa.anahita.window.AnahitaWindow;
 import tech.siloxa.anahita.engine.FrameRate;
@@ -41,7 +43,8 @@ public class Anahita implements Runnable {
 
     private void setupEngine() {
         this.frameRate = createFrameRateInstance();
-        this.screenManager = new ScreenManager();
+        final Screen starterScreen = getStarterScreenInstance();
+        this.screenManager = new ScreenManager(starterScreen);
     }
 
     private FrameRate createFrameRateInstance() {
@@ -51,6 +54,13 @@ public class Anahita implements Runnable {
 //                        this.context.getEnvironment().getProperty("pixel.engine.frame-rate", "60")
 //                )
         );
+    }
+
+    private Screen getStarterScreenInstance() {
+        //
+        // Should come from context
+        //
+        return new DemoScreen();
     }
 
     private void runWindow() {
