@@ -18,18 +18,6 @@ public class DemoScreen extends DynamicScreen {
 
     @Override
     public InputController input() {
-        if(keyboardController.up.pressed){
-            System.out.println("w");
-        }
-        if(keyboardController.down.pressed) {
-            System.out.println("s");
-        }
-        if(mouseController.right.clicked) {
-            System.out.println("rightMouse");
-        }
-        if(mouseController.left.clicked) {
-            System.out.println("leftMouse");
-        }
         return new InputController(keyboardController, mouseController);
     }
 

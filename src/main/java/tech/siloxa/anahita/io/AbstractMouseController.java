@@ -14,6 +14,8 @@ public abstract class AbstractMouseController implements MouseListener, MouseMot
     private int y = -1;
     private Map<Integer, MouseButton> buttons;
 
+    public abstract void input();
+
     protected void init(List<MouseButton> buttons) {
         this.buttons = buttons.stream()
                 .map(button -> Map.entry(button.getId(), button))

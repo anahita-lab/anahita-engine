@@ -14,4 +14,14 @@ public class DemoMouseController extends AbstractMouseController {
     public DemoMouseController() {
         init(List.of(left, right));
     }
+
+    @Override
+    public void input() {
+        if(right.clicked) {
+            System.out.println("rightMouse");
+        }
+        if(left.clicked) {
+            System.out.println("leftMouse");
+        }
+    }
 }

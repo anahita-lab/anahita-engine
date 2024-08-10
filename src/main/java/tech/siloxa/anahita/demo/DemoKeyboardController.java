@@ -14,4 +14,14 @@ public class DemoKeyboardController extends AbstractKeyboardController {
     public DemoKeyboardController() {
         init(List.of(up, down));
     }
+
+    @Override
+    public void input() {
+        if(up.pressed){
+            System.out.println("w");
+        }
+        if(down.pressed) {
+            System.out.println("s");
+        }
+    }
 }

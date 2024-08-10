@@ -21,6 +21,8 @@ public class AnahitaPanel extends AbstractPanel {
     @Override
     public void input(Screen screen) {
         final InputController io = screen.input();
+        io.keyboardController().input();
+        io.mouseController().input();
         addKeyListener(io.keyboardController());
         addMouseListener(io.mouseController());
     }

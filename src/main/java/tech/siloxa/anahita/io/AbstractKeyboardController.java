@@ -11,6 +11,8 @@ public abstract class AbstractKeyboardController implements KeyListener {
 
     private Map<Integer, Key> keys;
 
+    public abstract void input();
+
     protected void init(List<Key> keys) {
         this.keys = keys.stream()
                 .map(key -> Map.entry(key.getId(), key))
